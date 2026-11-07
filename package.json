@@ -1,0 +1,32 @@
+{
+  "name": "accessibility-issue-tracker",
+  "version": "1.0.0",
+  "description": "Accessibility Remediation Board & Issue Tracker for WCAG Compliance Findings",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "server": "node server/server.js",
+    "client": "npm --prefix client run dev",
+    "dev:server": "node server/server.js",
+    "build": "npm --prefix client install && npm --prefix client run build",
+    "seed": "node -e \"require('./server/services/issueService').resetAndSeedDefaults().then(r => console.log('Seeded successfully', r))\""
+  },
+  "keywords": [
+    "accessibility",
+    "a11y",
+    "wcag",
+    "axe-core",
+    "issue-tracker",
+    "remediation-board",
+    "mern"
+  ],
+  "author": "Accessibility Engineering Team",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "helmet": "^8.0.0",
+    "mongoose": "^8.9.5"
+  }
+}
