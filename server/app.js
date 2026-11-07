@@ -34,7 +34,7 @@ app.get('/api/health', (req, res) => {
 });
 
 // Serve frontend build if present (for single-server production deployment)
-const clientBuildPath = path.join(__dirname, '../client/dist');
+const clientBuildPath = path.join(__dirname, '../dist');
 app.use(express.static(clientBuildPath));
 
 // API 404 handler for unmatched /api routes

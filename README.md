@@ -104,15 +104,16 @@ Visit **[http://localhost:5000](http://localhost:5000)**.
 
 ## ☁️ Deploying to Vercel
 
-The project is preconfigured with `vercel.json` and a serverless entrypoint at `api/index.js`.
+The project is preconfigured with `vercel.json` and a serverless entrypoint at `api/index.js`. The build writes the frontend to the repository-root `dist` directory.
 
 ### Deployment Steps:
 1. Push this repository to GitHub, GitLab, or Bitbucket.
 2. In the [Vercel Dashboard](https://vercel.com/new), select **Import Project** and select your repository.
-3. Configure Environment Variables (Optional):
+3. In Project Settings → Build and Deployment, set **Root Directory** to the repository root (not `client`). Keep the configured build command and output directory (`dist`); this ensures Vercel also includes the `/api` serverless function.
+4. Configure Environment Variables (Optional):
    - `MONGODB_URI`: Your MongoDB Atlas connection string (e.g. `mongodb+srv://<user>:<password>@cluster0.mongodb.net/a11y_tracker?retryWrites=true&w=majority`).
    *(If omitted, the app will run in in-memory mode with sample audits).*
-4. Click **Deploy**. Vercel will automatically build the React client (`client/dist`) and deploy the serverless API routes under `/api/*`.
+5. Click **Deploy**. Vercel will build the React client into `dist` and deploy the serverless API routes under `/api/*`.
 
 ---
 
@@ -141,4 +142,3 @@ The project is preconfigured with `vercel.json` and a serverless entrypoint at `
 - **Focus Indicators**: 2px high-contrast focus rings with 2px offset conforming to WCAG 2.4.7 (Level AA).
 - **Skip Links**: Accessible top skip link for direct navigation to `#main-content`.
 - **Color Contrast**: All text and badge styles maintain at least 4.5:1 contrast against light and dark backgrounds.
-
